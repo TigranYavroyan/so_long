@@ -6,7 +6,7 @@
 /*   By: tyavroya <tyavroya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 18:51:29 by tyavroya          #+#    #+#             */
-/*   Updated: 2024/05/19 15:39:03 by tyavroya         ###   ########.fr       */
+/*   Updated: 2024/05/20 14:09:11 by tyavroya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 static int	is_valid_char(char ch)
 {
-	return (ch == '1' || ch == '0' || ch == 'P' || ch == 'C' || ch == 'E');
+	return (ch == '1' || ch == '0' || ch == 'P' || ch == 'C' || ch == 'E'
+		|| ch == 'O');
 }
 
 static void	adder(char ch, t_for_check *for_ch, t_game *game)

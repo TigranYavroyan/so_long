@@ -6,7 +6,7 @@
 /*   By: tyavroya <tyavroya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 16:04:15 by tyavroya          #+#    #+#             */
-/*   Updated: 2024/05/20 13:45:11 by tyavroya         ###   ########.fr       */
+/*   Updated: 2024/05/20 14:12:57 by tyavroya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ static void	validate_image(t_game *game, int i, int j)
 	}
 	else if (game->map[i][j] == SPACE)
 		put_image(game, game->img_floor, i * IMG_S, j * IMG_S);
+	else if (game->map[i][j] == OPPONENT)
+		put_image(game, game->img_opponent, i * IMG_S, j * IMG_S);
 }
 
 static void	init_images(t_game *game)
@@ -50,6 +52,9 @@ static void	init_images(t_game *game)
 			&game->img_height);
 	game->img_coin_back = mlx_xpm_file_to_image(game->mlx,
 			"./pictures/Floor/Floor_0.xpm", &game->img_width,
+			&game->img_height);
+	game->img_opponent = mlx_xpm_file_to_image(game->mlx,
+			"./pictures/Opponent/Opponent_0.xpm", &game->img_width,
 			&game->img_height);
 }
 

@@ -6,7 +6,7 @@
 /*   By: tyavroya <tyavroya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 18:49:21 by tyavroya          #+#    #+#             */
-/*   Updated: 2024/05/20 13:08:33 by tyavroya         ###   ########.fr       */
+/*   Updated: 2024/05/20 14:09:32 by tyavroya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # define PLAYER 'P'
 # define COIN 'C'
 # define EXIT 'E'
+# define OPPONENT 'O'
 # define MIN_MAP_SIZE 3
 
 # define IMG_S 64
@@ -76,6 +77,7 @@ typedef struct s_game
 	void	*img_coin;
 	void	*img_coin_back;
 	void	*img_exit;
+	void	*img_opponent;
 }			t_game;
 
 typedef struct s_data

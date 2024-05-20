@@ -6,7 +6,7 @@
 /*   By: tyavroya <tyavroya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 18:51:56 by tyavroya          #+#    #+#             */
-/*   Updated: 2024/05/20 13:02:04 by tyavroya         ###   ########.fr       */
+/*   Updated: 2024/05/20 14:09:53 by tyavroya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static void	init_game(t_game *game)
 	game->img_exit = NULL;
 	game->img_floor = NULL;
 	game->img_wall = NULL;
+	game->img_opponent = NULL;
 	game->map_size->row = 0;
 	game->map_size->col = 0;
 	game->coins_count = 0;

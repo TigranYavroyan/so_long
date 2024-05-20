@@ -6,7 +6,7 @@
 /*   By: tyavroya <tyavroya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:57:33 by tyavroya          #+#    #+#             */
-/*   Updated: 2024/05/20 14:01:20 by tyavroya         ###   ########.fr       */
+/*   Updated: 2024/05/20 14:15:39 by tyavroya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static int	checker_coin_exit_counter(t_game *game, int x, int y)
 {
 // 	mlx_string_put(game->mlx, game->win, 100, 100, 0xFF000000, ft_itoa(game->coins_count));
 // 	mlx_string_put(game->mlx, game->win, 200, 100, 0xFF000000, ft_itoa(game->endgame));
+	if (game->map[game->player->row + x][game->player->col + y] == OPPONENT) // maybe change smth
+		exit_game(game);
 	if (game->map[game->player->row + x][game->player->col + y] == WALL)
 		return (0);
 	else if (game->coins_count == 0 && game->map[game->player->row + x][game->player->col + y] == EXIT)
