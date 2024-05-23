@@ -6,7 +6,7 @@
 /*   By: tyavroya <tyavroya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 20:47:07 by tyavroya          #+#    #+#             */
-/*   Updated: 2024/05/19 15:26:57 by tyavroya         ###   ########.fr       */
+/*   Updated: 2024/05/23 21:57:56 by tyavroya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	is_valid_map(t_game *game)
 	char	**c_map;
 
 	check_map_size(game);
+	if (game->map_size->col > MAX_COL)
+		_err(game);
 	check_maps_elements(game);
 	is_map_open(game);
 	c_map = alloc_map(game);

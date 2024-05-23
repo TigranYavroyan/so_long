@@ -6,7 +6,7 @@
 /*   By: tyavroya <tyavroya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 18:51:56 by tyavroya          #+#    #+#             */
-/*   Updated: 2024/05/23 18:37:52 by tyavroya         ###   ########.fr       */
+/*   Updated: 2024/05/23 21:14:09 by tyavroya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static void	init_game(t_game *game)
 	game->img_floor = NULL;
 	game->img_wall = NULL;
 	game->img_opponent = NULL;
+	game->img_exit_open = NULL;
 	game->on_exit = 0;
 	game->map_size->row = 0;
 	game->map_size->col = 0;
@@ -48,6 +49,7 @@ int	t_main(int ac, char **av)
 	game.map = save_file(av[1], &game);
 	is_valid_map(&game);
 	open_window(&game);
+	init_images(&game);
 	printing_images(&game);
 	mlx_loop(game.mlx);
 	return (0);

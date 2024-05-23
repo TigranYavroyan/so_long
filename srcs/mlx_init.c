@@ -6,7 +6,7 @@
 /*   By: tyavroya <tyavroya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 16:04:15 by tyavroya          #+#    #+#             */
-/*   Updated: 2024/05/23 18:35:37 by tyavroya         ###   ########.fr       */
+/*   Updated: 2024/05/23 22:14:57 by tyavroya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ static void	validate_image(t_game *game, int i, int j)
 {
 	if (game->map[i][j] == WALL)
 		put_image(game, game->img_wall, i * IMG_S, j * IMG_S);
-	else if (game->map[i][j] == EXIT)
+	else if (game->map[i][j] == EXIT && game->coins_count)
 		put_image(game, game->img_exit, i * IMG_S, j * IMG_S);
+	else if (game->map[i][j] == EXIT && !game->coins_count)
+		put_image(game, game->img_exit_open, i * IMG_S, j * IMG_S);
 	else if (game->map[i][j] == PLAYER)
 	{
 		if (game->on_exit)
@@ -45,7 +47,7 @@ static void	validate_image(t_game *game, int i, int j)
 		put_image(game, game->img_opponent, i * IMG_S, j * IMG_S);
 }
 
-static void	init_images(t_game *game)
+void	init_images(t_game *game)
 {
 	game->img_player = mlx_xpm_file_to_image(game->mlx,
 			"./pictures/Player/Player_0_empty.xpm", &game->img_width,
@@ -54,6 +56,8 @@ static void	init_images(t_game *game)
 			"./pictures/Wall/Wall_0.xpm", &game->img_width, &game->img_height);
 	game->img_exit = mlx_xpm_file_to_image(game->mlx,
 			"./pictures/Gate/Gate_0.xpm", &game->img_width, &game->img_height);
+	game->img_exit_open = mlx_xpm_file_to_image(game->mlx,
+			"./pictures/Gate/Gate_3.xpm", &game->img_width, &game->img_height);
 	game->img_coin = mlx_xpm_file_to_image(game->mlx,
 			"./pictures/Coin/Coin_0.xpm", &game->img_width, &game->img_height);
 	game->img_floor = mlx_xpm_file_to_image(game->mlx,
@@ -63,7 +67,7 @@ static void	init_images(t_game *game)
 			"./pictures/Floor/Floor_0.xpm", &game->img_width,
 			&game->img_height);
 	game->img_opponent = mlx_xpm_file_to_image(game->mlx,
-			"./pictures/Opponent/Opponent_0.xpm", &game->img_width,
+			"./pictures/Opponent/Opponent_2.xpm", &game->img_width,
 			&game->img_height);
 }
 
@@ -85,7 +89,6 @@ int	printing_images(t_game *game)
 	char	*str;
 
 	row = -1;
-	init_images(game);
 	while (++row < game->map_size->row)
 	{
 		col = -1;
@@ -95,6 +98,10 @@ int	printing_images(t_game *game)
 	str = ft_itoa(game->moves_count);
 	mlx_string_put(game->mlx, game->win, 10, 10, 0xFF00BBFF, "Moves: ");
 	mlx_string_put(game->mlx, game->win, 80, 10, 0xFF00BBFF, str);
+	if (game->endgame)
+		mlx_string_put(game->mlx, game->win, game->map_size->col / 3 * IMG_S,
+			game->map_size->row / 2 * IMG_S, 0xFF00BBFF, "The game is ended, \
+			press any button ");
 	free(str);
 	event_handler(game);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: tyavroya <tyavroya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 19:57:30 by tyavroya          #+#    #+#             */
-/*   Updated: 2024/05/20 12:46:26 by tyavroya         ###   ########.fr       */
+/*   Updated: 2024/05/23 21:55:52 by tyavroya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	file_checker(char *file)
 	return (1);
 }
 
-static void	row_count(char *file, t_game* game)
+static int	row_count(char *file, t_game *game)
 {
 	int		fd;
 	char	*file_info;
@@ -35,17 +35,24 @@ static void	row_count(char *file, t_game* game)
 		++(game->map_size->row);
 	}
 	close(fd);
+	if (game->map_size->row > MAX_ROW)
+		return (0);
+	return (1);
 }
 
 char	**save_file(char *file, t_game *game)
 {
-	int		fd;
-	int		i;
+	int	fd;
+	int	i;
 
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 		_err(game);
-	row_count(file, game);
+	if (!row_count(file, game))
+	{
+		close(fd);
+		_err(game);
+	}
 	game->map = (char **)malloc(sizeof(char *) * (game->map_size->row + 1));
 	if (game->map == NULL)
 		_err(game);

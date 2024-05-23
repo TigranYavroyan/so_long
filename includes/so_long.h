@@ -6,7 +6,7 @@
 /*   By: tyavroya <tyavroya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 18:49:21 by tyavroya          #+#    #+#             */
-/*   Updated: 2024/05/23 18:19:29 by tyavroya         ###   ########.fr       */
+/*   Updated: 2024/05/23 21:57:05 by tyavroya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ enum		Mode
 # define ON_EXIT 1
 # define FROM_EXIT 2
 # define DEAD 4
+# define END_GAME 8
 
+# define MAX_ROW 16
+# define MAX_COL 30
 # define IMG_S 64
 
 // ---------- for event-handling ---------
@@ -87,6 +90,7 @@ typedef struct s_game
 	void	*img_coin;
 	void	*img_coin_back;
 	void	*img_exit;
+	void	*img_exit_open;
 	void	*img_opponent;
 }			t_game;
 
@@ -120,6 +124,7 @@ int			exit_game(t_game *game, int mode);
 // --------------------------- mlx_init ------------------------------------
 void		open_window(t_game *game);
 int			printing_images(t_game *game);
+void		init_images(t_game *game);
 // --------------------------- event_handler -------------------------------
 void		event_handler(t_game *game);
 // -------------------------- moving ---------------------------------------
@@ -127,6 +132,7 @@ void		go_down(t_game *game);
 void		go_up(t_game *game);
 void		go_left(t_game *game);
 void		go_right(t_game *game);
-// -------------------------------------------------------------------------
-// void 		end_game (t_game *game);
+// ----------------------- moving_utils ------------------------------------
+void		put_player(t_game *game);
+int			checker_coin_exit_counter(t_game *game, int x, int y);
 #endif // SO_LONG_H
