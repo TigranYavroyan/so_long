@@ -6,7 +6,7 @@
 /*   By: tyavroya <tyavroya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 21:35:03 by tyavroya          #+#    #+#             */
-/*   Updated: 2024/05/20 13:08:47 by tyavroya         ###   ########.fr       */
+/*   Updated: 2024/05/23 18:37:00 by tyavroya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,25 @@ void	dealloc(t_game *game)
 		dealloc_map(game->map);
 }
 
-int	exit_game(t_game *game)
+int	exit_game(t_game *game, int mode)
 {
+	int wait;
 	mlx_destroy_image(game->mlx, game->img_coin);
 	mlx_destroy_image(game->mlx, game->img_coin_back);
 	mlx_destroy_image(game->mlx, game->img_exit);
 	mlx_destroy_image(game->mlx, game->img_floor);
 	mlx_destroy_image(game->mlx, game->img_wall);
 	mlx_destroy_image(game->mlx, game->img_player);
+	mlx_destroy_image(game->mlx, game->img_opponent);
 	mlx_destroy_window(game->mlx, game->win);
-	dealloc_map(game->map);
-	// system("leaks so_long");
+	dealloc(game);
+	if (mode == WAIT)
+	{
+		wait = INT_MAX / 4;
+		while(wait)
+			--wait;
+	}
+	system("leaks so_long");
 	exit(EXIT_SUCCESS);
 	return (0);
 }

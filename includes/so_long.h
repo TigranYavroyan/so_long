@@ -6,7 +6,7 @@
 /*   By: tyavroya <tyavroya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 18:49:21 by tyavroya          #+#    #+#             */
-/*   Updated: 2024/05/20 14:09:32 by tyavroya         ###   ########.fr       */
+/*   Updated: 2024/05/23 18:19:29 by tyavroya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@
 # include <mlx.h>
 # include <stdio.h>
 
+enum		Mode
+{
+	WAIT = 1,
+	INSTANT = 0
+};
+
 # define WALL '1'
 # define SPACE '0'
 # define PLAYER 'P'
@@ -27,6 +33,9 @@
 # define EXIT 'E'
 # define OPPONENT 'O'
 # define MIN_MAP_SIZE 3
+# define ON_EXIT 1
+# define FROM_EXIT 2
+# define DEAD 4
 
 # define IMG_S 64
 
@@ -69,6 +78,7 @@ typedef struct s_game
 	int		win_width;
 	int		img_height;
 	int		img_width;
+	int		on_exit;
 	void	*mlx;
 	void	*win;
 	void	*img_floor;
@@ -106,7 +116,7 @@ char		**alloc_map(t_game *game);
 void		_err(t_game *game);
 void		dealloc(t_game *game);
 void		dealloc_map(char **map);
-int			exit_game(t_game *game);
+int			exit_game(t_game *game, int mode);
 // --------------------------- mlx_init ------------------------------------
 void		open_window(t_game *game);
 int			printing_images(t_game *game);
@@ -118,4 +128,5 @@ void		go_up(t_game *game);
 void		go_left(t_game *game);
 void		go_right(t_game *game);
 // -------------------------------------------------------------------------
+// void 		end_game (t_game *game);
 #endif // SO_LONG_H

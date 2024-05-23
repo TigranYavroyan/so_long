@@ -6,7 +6,7 @@
 /*   By: tyavroya <tyavroya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:32:26 by tyavroya          #+#    #+#             */
-/*   Updated: 2024/05/20 13:54:46 by tyavroya         ###   ########.fr       */
+/*   Updated: 2024/05/23 18:17:14 by tyavroya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ static void	move_handler(int key, t_game *game)
 static int	key_handler(int key, t_game *game)
 {
 	if (key == KEY_ESC || key == KEY_Q)
-		exit_game(game);
+		exit_game(game, INSTANT);
 	else if (!game->endgame)
 		move_handler(key, game);
 	else if (game->endgame)
-		exit_game(game);
+		exit_game(game, WAIT);
 	return (0);
 }
 

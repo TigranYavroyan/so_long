@@ -6,7 +6,7 @@
 /*   By: tyavroya <tyavroya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 18:51:56 by tyavroya          #+#    #+#             */
-/*   Updated: 2024/05/20 14:09:53 by tyavroya         ###   ########.fr       */
+/*   Updated: 2024/05/23 18:37:52 by tyavroya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static void	init_game(t_game *game)
 	game->img_floor = NULL;
 	game->img_wall = NULL;
 	game->img_opponent = NULL;
+	game->on_exit = 0;
 	game->map_size->row = 0;
 	game->map_size->col = 0;
 	game->coins_count = 0;
@@ -55,5 +56,5 @@ int	t_main(int ac, char **av)
 int	main(int ac, char **av)
 {
 	t_main(ac, av);
-	// system("leaks so_long");
+	system("leaks so_long");
 }

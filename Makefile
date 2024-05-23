@@ -9,14 +9,14 @@ PRINTF = $(PRINTF_PATH)/srcs/*.o
 LIBFT = $(LIBFTPATH)*.o
 
 CC = cc
-CFLAGS = -Wall -Wextra  $(foreach H,$(INCPATH),-I$(H))
+CFLAGS = -Wall -Wextra -Werror  $(foreach H,$(INCPATH),-I$(H))
 #-Werror
 MLXFLAGS = -Lmlx -lmlx -framework OpenGl -framework Appkit -lm
 
 all : $(NAME)
 $(NAME) : $(LIBFT) $(PRINTF) $(OBJS)
-	$(CC) -fsanitize=address -g $(MLXFLAGS) $(LIBFT) $(PRINTF) $(OBJS) -o $(NAME)
-#-fsanitize=address
+	$(CC) $(MLXFLAGS) $(LIBFT) $(PRINTF) $(OBJS) -o $(NAME)
+#-fsanitize=address -g
 $(LIBFT) :
 	make -C $(LIBFTPATH) all
 
