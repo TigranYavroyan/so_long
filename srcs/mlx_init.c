@@ -6,13 +6,13 @@
 /*   By: tyavroya <tyavroya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 16:04:15 by tyavroya          #+#    #+#             */
-/*   Updated: 2024/05/23 22:14:57 by tyavroya         ###   ########.fr       */
+/*   Updated: 2024/05/24 13:57:49 by tyavroya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-static void	put_image(t_game *game, void *img, int row, int col)
+void	put_image(t_game *game, void *img, int row, int col)
 {
 	mlx_put_image_to_window(game->mlx, game->win, img, col, row);
 }
@@ -37,10 +37,7 @@ static void	validate_image(t_game *game, int i, int j)
 		put_image(game, game->img_player, i * IMG_S, j * IMG_S);
 	}
 	else if (game->map[i][j] == COIN)
-	{
-		put_image(game, game->img_coin_back, i * IMG_S, j * IMG_S);
-		put_image(game, game->img_coin, (i * IMG_S) + 15, (j * IMG_S) + 15);
-	}
+		put_coin(game, i, j);
 	else if (game->map[i][j] == SPACE)
 		put_image(game, game->img_floor, i * IMG_S, j * IMG_S);
 	else if (game->map[i][j] == OPPONENT)

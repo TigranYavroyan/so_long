@@ -6,7 +6,7 @@
 /*   By: tyavroya <tyavroya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 12:32:26 by tyavroya          #+#    #+#             */
-/*   Updated: 2024/05/23 20:00:04 by tyavroya         ###   ########.fr       */
+/*   Updated: 2024/05/24 15:51:41 by tyavroya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 static void	move_handler(int key, t_game *game)
 {
-	if (key == KEY_A || key == KEY_LEFT)
+	if (key == KEY_A)
 		go_left(game);
-	else if (key == KEY_D || key == KEY_RIGHT)
+	else if (key == KEY_D)
 		go_right(game);
-	else if (key == KEY_S || key == KEY_DOWN)
+	else if (key == KEY_S)
 		go_down(game);
-	else if (key == KEY_W || key == KEY_UP)
+	else if (key == KEY_W)
 		go_up(game);
 }
 
@@ -39,5 +39,4 @@ void	event_handler(t_game *game)
 {
 	mlx_hook(game->win, 2, 1L << 0, key_handler, game);
 	mlx_hook(game->win, 17, 1L << 17, exit_game, game);
-	// mlx_hook(game->win, 9, 1L << 21, printing_images, game); // ynji mar
 }

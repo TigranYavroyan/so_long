@@ -6,7 +6,7 @@
 /*   By: tyavroya <tyavroya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 21:35:03 by tyavroya          #+#    #+#             */
-/*   Updated: 2024/05/23 21:56:40 by tyavroya         ###   ########.fr       */
+/*   Updated: 2024/05/24 14:19:58 by tyavroya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ int	exit_game(t_game *game, int mode)
 		while (wait)
 			--wait;
 	}
-	system("leaks so_long");
 	exit(EXIT_SUCCESS);
 	return (0);
 }
@@ -85,6 +84,5 @@ void	_err(t_game *game)
 {
 	dealloc(game);
 	ft_putstr_fd("Error\nInvalid input\n", 2);
-	system("leaks so_long");
 	exit(EXIT_FAILURE);
 }

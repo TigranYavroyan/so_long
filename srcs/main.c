@@ -6,7 +6,7 @@
 /*   By: tyavroya <tyavroya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 18:51:56 by tyavroya          #+#    #+#             */
-/*   Updated: 2024/05/23 21:14:09 by tyavroya         ###   ########.fr       */
+/*   Updated: 2024/05/24 14:19:09 by tyavroya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	init_game(t_game *game)
 	game->win_width = 0;
 }
 
-int	t_main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_game	game;
 
@@ -53,10 +53,4 @@ int	t_main(int ac, char **av)
 	printing_images(&game);
 	mlx_loop(game.mlx);
 	return (0);
-}
-
-int	main(int ac, char **av)
-{
-	t_main(ac, av);
-	system("leaks so_long");
 }

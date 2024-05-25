@@ -10,13 +10,12 @@ LIBFT = $(LIBFTPATH)*.o
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror  $(foreach H,$(INCPATH),-I$(H))
-#-Werror
 MLXFLAGS = -Lmlx -lmlx -framework OpenGl -framework Appkit -lm
 
 all : $(NAME)
 $(NAME) : $(LIBFT) $(PRINTF) $(OBJS)
 	$(CC) $(MLXFLAGS) $(LIBFT) $(PRINTF) $(OBJS) -o $(NAME)
-#-fsanitize=address -g
+
 $(LIBFT) :
 	make -C $(LIBFTPATH) all
 

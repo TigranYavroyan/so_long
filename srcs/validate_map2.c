@@ -6,7 +6,7 @@
 /*   By: tyavroya <tyavroya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 20:47:07 by tyavroya          #+#    #+#             */
-/*   Updated: 2024/05/23 21:57:56 by tyavroya         ###   ########.fr       */
+/*   Updated: 2024/05/25 16:41:34 by tyavroya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	check_path(char **map, t_point from, int count_e_c)
 
 	if (!counter)
 		counter = count_e_c;
-	if (map[from.row][from.col] == WALL)
+	if (map[from.row][from.col] == WALL || map[from.row][from.col] == OPPONENT)
 		return (0);
 	if (map[from.row][from.col] == COIN || map[from.row][from.col] == EXIT)
 		--counter;

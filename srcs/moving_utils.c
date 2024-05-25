@@ -6,7 +6,7 @@
 /*   By: tyavroya <tyavroya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 21:47:31 by tyavroya          #+#    #+#             */
-/*   Updated: 2024/05/23 21:58:09 by tyavroya         ###   ########.fr       */
+/*   Updated: 2024/05/24 13:57:14 by tyavroya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,10 @@ int	checker_coin_exit_counter(t_game *game, int x, int y)
 	++(game->moves_count);
 	mlx_clear_window(game->mlx, game->win);
 	return (1);
+}
+
+void	put_coin(t_game *game, int i, int j)
+{
+	put_image(game, game->img_coin_back, i * IMG_S, j * IMG_S);
+	put_image(game, game->img_coin, (i * IMG_S) + 15, (j * IMG_S) + 15);
 }
