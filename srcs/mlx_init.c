@@ -6,7 +6,7 @@
 /*   By: tyavroya <tyavroya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 16:04:15 by tyavroya          #+#    #+#             */
-/*   Updated: 2024/05/24 13:57:49 by tyavroya         ###   ########.fr       */
+/*   Updated: 2024/06/25 12:42:30 by tyavroya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ void	init_images(t_game *game)
 	game->img_opponent = mlx_xpm_file_to_image(game->mlx,
 			"./pictures/Opponent/Opponent_2.xpm", &game->img_width,
 			&game->img_height);
+	if (!check_imgs(game))
+		_err(game);
 }
 
 void	open_window(t_game *game)

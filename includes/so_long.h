@@ -6,7 +6,7 @@
 /*   By: tyavroya <tyavroya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 18:49:21 by tyavroya          #+#    #+#             */
-/*   Updated: 2024/05/24 15:51:01 by tyavroya         ###   ########.fr       */
+/*   Updated: 2024/06/25 12:43:11 by tyavroya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ enum		e_Mode
 # define DEAD 4
 # define END_GAME 8
 
-# define MAX_ROW 16
+# define MAX_ROW 18
 # define MAX_COL 30
 # define IMG_S 64
 
@@ -101,6 +101,7 @@ typedef struct s_data
 }			t_data;
 
 int			file_checker(char *file);
+int			check_imgs(t_game *game);
 char		**save_file(char *file, t_game *game);
 //------------------------------ validate_map ------------------------------
 void		check_map_size(t_game *game);

@@ -6,13 +6,12 @@
 /*   By: tyavroya <tyavroya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 20:47:07 by tyavroya          #+#    #+#             */
-/*   Updated: 2024/05/25 16:41:34 by tyavroya         ###   ########.fr       */
+/*   Updated: 2024/06/24 13:43:44 by tyavroya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-// add all validating functions for map here to call from main only this
 void	is_valid_map(t_game *game)
 {
 	char	**c_map;

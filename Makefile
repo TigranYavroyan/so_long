@@ -9,7 +9,7 @@ PRINTF = $(PRINTF_PATH)/srcs/*.o
 LIBFT = $(LIBFTPATH)*.o
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror  $(foreach H,$(INCPATH),-I$(H))
+CFLAGS = -Wall -Wextra -Werror $(foreach H,$(INCPATH),-I$(H))
 MLXFLAGS = -Lmlx -lmlx -framework OpenGl -framework Appkit -lm
 
 all : $(NAME)

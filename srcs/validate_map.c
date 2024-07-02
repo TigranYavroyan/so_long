@@ -6,7 +6,7 @@
 /*   By: tyavroya <tyavroya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 18:51:29 by tyavroya          #+#    #+#             */
-/*   Updated: 2024/05/24 14:07:06 by tyavroya         ###   ########.fr       */
+/*   Updated: 2024/06/30 15:53:11 by tyavroya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,12 @@ void	check_map_size(t_game *game)
 
 	i = 1;
 	game->map_size->col = ft_strlen(game->map[0]);
+	if (game->map_size->col == 0)
+		_err(game);
 	while ((game->map)[i] != NULL)
 	{
-		if (game->map_size->col != (int)ft_strlen((game->map)[i]))
+		if (game->map_size->col != (int)ft_strlen((game->map)[i])
+			&& game->map[i][game->map_size->col] != '\0')
 			_err(game);
 		++i;
 	}
